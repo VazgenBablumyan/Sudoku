@@ -1,0 +1,21 @@
+.sudoku {
+    display: flex;
+    flex-wrap: wrap;
+    width: 570px;
+}
+.default{
+
+    background-color: rgb(236, 255, 255);
+    border:1px solid black;
+    height: 60px;
+    width: 60px;
+    
+}
+.square{
+    width: 186px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border:  2px solid black;
+    
+}
