@@ -60,26 +60,29 @@ function shuffleArray(array) {
   }
 }
 const board = sudokuBoard();
-function easy(){
-   const countOfEmptyItems = Math.ceil(Math.random() * 10 + 10)
-   let counter = 0
-   as: for(let i = 0; counter < countOfEmptyItems; i++){
-    let row = board[i]
-    for(let idx = 0; counter < countOfEmptyItems; idx++){
+function easy() {
+  const countOfEmptyItems = Math.ceil(Math.random() * 10 + 5);
+  let counter = 0;
 
-      if(Math.random()<0.2 && Math.random()> 0.5){
-        row[idx] = 0
-        counter++
-      }
-      if(idx === 8){
-        continue as
-      }
+  firstLoop: for (let i = 0; counter < countOfEmptyItems; i++) {
+    if (i === 9) {
+      i = 0;
     }
-    if(i === 8){
-      i = 0
+    let row = board[i];
+    for (let idx = 0; counter < countOfEmptyItems; idx++) {
+      if (Math.random() > 0.85 && Math.random() < 0.88 && row[idx] !== 0) {
+        row[idx] = 0;
+        counter++;
+      }
+      if (idx === 8) {
+        continue firstLoop;
+      }
     }
   }
-  return board
+
+  console.log(countOfEmptyItems);
+  console.log(counter);
+  return board;
 }
 
 console.log(easy());
