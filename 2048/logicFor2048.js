@@ -31,8 +31,29 @@ for(let i=0;i<grid.length;i++){
     grid[currentRow][j]=grid[i][j]
     grid[i][j]=0
    }
-
   }
 }
 return grid
 }
+function moveDown(){
+    let currentRow = 3
+    for(let i =3; i>=0; i--){
+      for(let j =2; j>= 0; j--){
+        if(grid[i][j]!==0){
+          if(grid[currentRow][j]===0){
+            grid[currentRow][j]=grid[i][j]
+            grid[i][j]=0
+          } else if(grid[currentRow][j]===grid[i][j]){
+            grid[currentRow][j]*=2
+            grid[i][j]=0
+            currentRow--
+          } else {
+            currentRow--
+            grid[currentRow][j]=grid[i][j]
+            grid[i][j]=0
+          }
+        }
+      }
+    }
+    return grid
+  }
