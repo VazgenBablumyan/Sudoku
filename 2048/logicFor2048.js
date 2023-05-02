@@ -57,3 +57,48 @@ function moveDown(){
     }
     return grid
   }
+  function moveRight(){
+    for(let i=0; i<grid.length; i++){
+      let currentCol=grid.length-1
+      for(let j=grid.length-2; j>=0; j--){
+        if(grid[i][j]!==0){
+          if(grid[i][currentCol]===0){
+            grid[i][currentCol]=grid[i][j]
+            grid[i][j]=0
+        }else if(grid[i][currentCol]===grid[i][j]){
+        grid[i][currentCol]*=2
+         grid[i][j]=0
+          currentCol--
+     }else{
+     currentCol--
+      grid[i][currentCol]=grid[i][j]
+      grid[i][j]=0
+  }
+  }
+  }
+  }
+  return grid
+  }
+  function moveLeft(){
+    let currentCol=0
+    for(let i=1; i<grid.length; i++){
+      for(let j=0; j<grid.length; j++){
+        if(grid[i][j]!==0){
+          if(grid[i][currentCol]===0){
+            grid[i][currentCol]=grid[i][j]
+            grid[i][j]=0
+          } else if(grid[i][currentCol]===grid[i][j]){
+            grid[i][currentCol]*=2
+            grid[i][j]=0
+            currentCol++
+          } else {
+            currentCol++
+            grid[i][currentCol]=grid[i][j]
+            grid[i][j]=0
+          }
+        }
+      }
+      currentCol=0
+    }
+    return grid
+  }
