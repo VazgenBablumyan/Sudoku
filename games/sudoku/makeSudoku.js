@@ -1,3 +1,6 @@
+import { gameMode } from "./helper/chooseMode.js";
+import { createElement } from "./helper/createElement.js";
+
 function sudokuBoard() {
   const board = [];
   for (let i = 0; i < 9; i++) {
@@ -9,7 +12,16 @@ function sudokuBoard() {
   generateHelper(board, 0, 0);
   return board;
 }
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
 function generateHelper(board, row, col) {
+  
   if (col === 9) {
     row++;
     col = 0;
@@ -20,9 +32,12 @@ function generateHelper(board, row, col) {
   const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   shuffleArray(nums);
   for (let i = 0; i < 9; i++) {
+    
     const num = nums[i];
     if (isValid(board, row, col, num)) {
       board[row][col] = num;
+      
+
       if (generateHelper(board, row, col + 1)) {
         return true;
       }
@@ -53,15 +68,11 @@ function isValid(board, row, col, num) {
   }
   return true;
 }
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-}
-const board = sudokuBoard();
-function easy() {
-  const countOfEmptyItems = Math.ceil(Math.random() * 10 + 5);
+
+
+
+export function playMode(emptynums) {
+  const countOfEmptyItems = Math.ceil(Math.random() * 10 + emptynums);
   let counter = 0;
 
   firstLoop: for (let i = 0; counter < countOfEmptyItems; i++) {
@@ -80,9 +91,7 @@ function easy() {
     }
   }
 
-  console.log(countOfEmptyItems);
-  console.log(counter);
-  return board;
+ 
+  return sudokuBoard();
 }
 
-console.log(easy());

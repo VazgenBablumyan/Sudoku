@@ -1,21 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
 .sudoku {
     display: flex;
     flex-wrap: wrap;
     width: 570px;
 }
-.default{
+.boxStyle{
 
-    background-color: rgb(236, 255, 255);
+    background-color: rgb(165, 194, 37);
     border:1px solid black;
     height: 60px;
     width: 60px;
     
 }
 .square{
+    background-color: aqua;
     width: 186px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     border:  2px solid black;
     
+}
+.easy{
+    width:100px;
+    height:20px;
+    background-color: green;
 }
