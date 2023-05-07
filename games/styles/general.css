@@ -90,8 +90,8 @@ footer {
 
 .indexbtn a {
 	text-decoration: none;
-	color: #fff;
-	background-color: #476df5;
+	color: #000000;
+	background-color: #f5f542;
 	padding: 8px 20px;
 	border-radius: 18px;
 }
@@ -109,3 +109,4 @@ footer{
 .mainimg img{
 	width: 300px;
 }
+
