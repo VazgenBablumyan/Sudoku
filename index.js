@@ -5,4 +5,4 @@ import { renderSudoku } from "./games/sudoku/components/renderSudoku.js"
 const root = document.getElementById("root")
 root.append(Header())
 root.append(Play)
-root.append(renderSudoku())
+root.append(renderSudoku(0))

@@ -1,6 +1,3 @@
-import { gameMode } from "./helper/chooseMode.js";
-import { createElement } from "./helper/createElement.js";
-
 function sudokuBoard() {
   const board = [];
   for (let i = 0; i < 9; i++) {
@@ -13,15 +10,7 @@ function sudokuBoard() {
   return board;
 }
 
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-}
-
 function generateHelper(board, row, col) {
-  
   if (col === 9) {
     row++;
     col = 0;
@@ -29,15 +18,13 @@ function generateHelper(board, row, col) {
       return true;
     }
   }
+
   const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   shuffleArray(nums);
   for (let i = 0; i < 9; i++) {
-    
-    const num = nums[i];
-    if (isValid(board, row, col, num)) {
-      board[row][col] = num;
-      
-
+    const value = nums[i];
+    if (isValid(board, row, col, value)) {
+      board[row][col] = value;
       if (generateHelper(board, row, col + 1)) {
         return true;
       }
@@ -46,14 +33,14 @@ function generateHelper(board, row, col) {
   }
   return false;
 }
-function isValid(board, row, col, num) {
+function isValid(board, row, col, value) {
   for (let i = 0; i < 9; i++) {
-    if (board[row][i] === num) {
+    if (board[row][i] === value) {
       return false;
     }
   }
   for (let i = 0; i < 9; i++) {
-    if (board[i][col] === num) {
+    if (board[i][col] === value) {
       return false;
     }
   }
@@ -61,24 +48,29 @@ function isValid(board, row, col, num) {
   const boxCol = Math.floor(col / 3) * 3;
   for (let i = boxRow; i < boxRow + 3; i++) {
     for (let j = boxCol; j < boxCol + 3; j++) {
-      if (board[i][j] === num) {
+      if (board[i][j] === value) {
         return false;
       }
     }
   }
   return true;
 }
-
-
-
-export function playMode(emptynums) {
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+const board = sudokuBoard();
+ export function playMode(emptynums) {
   const countOfEmptyItems = Math.ceil(Math.random() * 10 + emptynums);
   let counter = 0;
 
   firstLoop: for (let i = 0; counter < countOfEmptyItems; i++) {
-    if (i === 9) {
+    if (i === 9) {  
       i = 0;
     }
+
     let row = board[i];
     for (let idx = 0; counter < countOfEmptyItems; idx++) {
       if (Math.random() > 0.85 && Math.random() < 0.88 && row[idx] !== 0) {
@@ -89,9 +81,9 @@ export function playMode(emptynums) {
         continue firstLoop;
       }
     }
+    
+    
   }
-
- 
-  return sudokuBoard();
+  console.log(board)
+  return board;
 }
-

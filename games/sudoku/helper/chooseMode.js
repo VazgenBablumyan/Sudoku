@@ -1,20 +1,24 @@
-import { playMode } from "../makeSudoku.js";
+import { renderSudoku } from "../components/renderSudoku.js";
 import { createElement } from "./createElement.js";
-export let gameMode = 0
- const easy = createElement("button",{
-    class: "easy",
-    onClick: () => playMode(15) 
+
+    const easy = createElement("button",{  
+    id: "easyMode",
     }, "EASY")
-const medium = createElement("button",{
-    class: "medium",
-    onClick: () => playMode(35)
+    const medium = createElement("button",{
+    id: "medium",
     }, "MEDIUM")
-const hard = createElement("button",{
-    class: "hard",
-    onClick: () => playMode(60)
-}, "HARD")
+    const hard = createElement("button",{
+    id: "hard",
+    }, "HARD")
+    let a = document.getElementById("easyMode")
+    window.onload= function(){
+   document.getElementById("medium").addEventListener("onClick", renderSudoku(35))
+   //   document.getElementById("hard").addEventListener("click", renderSudoku(35))
+    }
+ export const Play = createElement("div",{class:"mode"}, easy, medium)
+ 
+ 
 
-
-export const Play = createElement("div",{class:"mode"}, easy, medium, hard  )
+ 
 
  
