@@ -18,7 +18,7 @@
 }
 .square{
     background-color: aqua;
-    width: 186px;
+    width: 570px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
