@@ -3,18 +3,30 @@
     padding: 0;
 
 }
-.sudoku {
-    display: flex;
-    flex-wrap: wrap;
-    width: 570px;
-}
+
 .boxStyle{
 
     background-color: rgb(165, 194, 37);
+    font-size: 40px;
+    text-align: center;
+    padding-top:2px;
     border:1px solid black;
     height: 60px;
     width: 60px;
     
+}
+.positionShow{
+ position: absolute;
+ z-index: 4;
+}
+.positionHidden{
+    display: none;
+    
+}
+.close{
+    width: 50px;
+    height: 50px;
+    font-size: 50px;
 }
 .square{
     background-color: aqua;
@@ -25,8 +37,44 @@
     border:  2px solid black;
     
 }
-.easy{
-    width:100px;
-    height:20px;
-    background-color: green;
+#headerOfSudoku{
+    display: inline;
+    width: 800px;
+}
+.sudoku{
+
+	margin-top: 20px;
+	position: absolute;
+	z-index: 5;
+	width: 800px;
+	height:  800px;
+	background-color: #2f6e5a;
+
+}
+#sudokuPage{}
+
+.modes{
+    width: auto;
+    height: 250;
+    font-size: 60px;
+    display: flex;
+    flex-flow: column;
+    color: aliceblue;
+    text-align: center;   
+}
+#easyMode{
+    background-color: rgb(19, 255, 19);
+
+}
+#mediumMode{
+background-color: #ffd429;
+}
+#hardMode{
+background-color: rgb(184, 16, 16);
+}
+#sudokuModes{
+    justify-items: center;
+    height: auto;
+    background-color: #ffd429;
+    color: aliceblue;
 }

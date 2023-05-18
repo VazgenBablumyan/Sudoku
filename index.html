@@ -1,13 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./games/styles/styles.css" />
-  </head>
-  <body id = "root">
-    <script defer  type="module" src="./index.js" /> 
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="games/styles/general.css">
+    <link rel="stylesheet" href="games/styles/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="games/img/icon2.png" type="image/x-icon">
+    <title>Games</title>
+</head>
+
+<body id = "root">
+    <header>
+        <div class="container">
+            <div class="row">
+                <div>
+                    <a href="index.html"><img src="games/img/icon2.png" class="logo" alt="sudokuImage"></a>
+                </div>
+                <div class="nav">
+                    <ul class="row">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row justify-around">
+                <div class="col-50">
+                    <div class="box">
+                        <img src="games/img/sudoku.png" alt="Logo Sudoku">
+                    </div>
+                    <div class="indexbtn">
+                        <button id = "startSudoku" class="bold positio" >Start Game</button> 
+                    </div>
+                </div>
+                <div class="col-50">
+                    <div class="box">
+                        <img src="games/img/2048.png" alt="2048 logo">
+                    </div>
+                    <div class="indexbtn">
+                        <a href="#" class="bold">Start Game</a>
+                    </div>
+                </div>
+                <div class="col-50">
+                    <div class="box">
+                        <img src="games/img/shiritori.png" alt="2048 logo">
+                    </div>
+                    <div class="indexbtn">
+                        <a href="#" class="bold">Start Game</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container2">
+            <div class="row">
+                <div class="copyright">
+                    <p class="bold">© designed and developed by Group 3</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <div id = "sudokuPage" class ="sudoku positionHidden">
+        <p id="headerOfSudoku">SuDoKu</p>
+        <button id ="closeSudokuPage" class="close ">X</button> <br>
+
+        <div id="sudokuModes" >
+            <button id="easyMode" class="modes" >Easy</button>
+            <button id="mediumMode" class="modes" >Medium</button>
+            <button id="hardMode" class="modes" >Hard</button>
+        </div> 
+        <div id = "gameEnd" class="positionHidden"> 
+            <button id ="closeGameEnd" class="close">X</button>
+            <span id ="tryAgain"> try again <br> Game End</span>
+        </div>     
+        <section id =sudoku>
+            <button id ="closeSudoku" class="close positionHidden ">X</button>
+
+
+        </section>
+
+    </div>
+</body>
+<script defer  type="module" src="./index.js" > </script>  
+<script defer  type="module" src="./games/sudoku/components/renderSudoku.js"></script>/
+<script defer  type="module" src="./games/sudoku/helper/chooseMode.js" ></script>
+<script defer type="module" src="./games/sudoku/components/changeNumber.js"></script>
+
+
 </html>
