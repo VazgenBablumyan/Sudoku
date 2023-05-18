@@ -1,24 +1,25 @@
 import { renderSudoku } from "../components/renderSudoku.js";
-import { createElement } from "./createElement.js";
+import { closeSudoku, sudoku } from "../components/constant.js"
 
-    const easy = createElement("button",{  
-    id: "easyMode",
-    }, "EASY")
-    const medium = createElement("button",{
-    id: "medium",
-    }, "MEDIUM")
-    const hard = createElement("button",{
-    id: "hard",
-    }, "HARD")
-    let a = document.getElementById("easyMode")
-    window.onload= function(){
-   document.getElementById("medium").addEventListener("onClick", renderSudoku(35))
-   //   document.getElementById("hard").addEventListener("click", renderSudoku(35))
+ export let gameProcess = 0;
+
+ easyMode.addEventListener("click", () => {
+   if (sudoku.className !=="positionHidden") {
+
+      closeSudoku.classList.remove("positionHidden");
+      renderSudoku(15);
     }
- export const Play = createElement("div",{class:"mode"}, easy, medium)
- 
- 
-
- 
-
- 
+  });
+mediumMode.addEventListener("click", () => {
+  if (sudoku.className!=="positionHidden") {
+    closeSudoku.classList.remove("positionHidden");
+    renderSudoku(35);
+  }
+});
+hardMode.addEventListener("click", () => {
+    if (!gameProcess) {
+      gameProcess ++;
+      closeSudoku.classList.remove("positionHidden");
+      renderSudoku(55);
+    }
+  });
