@@ -51,7 +51,9 @@
 	background-color: #2f6e5a;
 
 }
-#sudokuPage{}
+#sudokuPage{
+    font-size: large;
+}
 
 .modes{
     width: auto;

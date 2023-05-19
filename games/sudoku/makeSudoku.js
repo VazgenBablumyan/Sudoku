@@ -72,7 +72,7 @@ function shuffleArray(array) {
 
 const board = sudokuBoard();
  export let hiddenNumbers =[[],[],[],[],[],[],[],[],[]]
-
+ export let counterForGameEnd=0
 
  export let playMode = function(emptynums) {
 
@@ -92,6 +92,7 @@ const board = sudokuBoard();
         hiddenNumbers[i][idx] = row[idx]
         row[idx] = 0;
         counter++;
+        counterForGameEnd = counter
       }
       if (idx === 8) {
         continue firstLoop;
@@ -101,6 +102,5 @@ const board = sudokuBoard();
     
   } 
    console.log(hiddenNumbers)
-  console.log(board)
   return board;
 }
