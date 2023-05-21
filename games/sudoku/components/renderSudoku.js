@@ -1,26 +1,24 @@
-import { gameProcess } from "../helper/chooseMode.js"
 import { createElement } from "../helper/createElement.js";
 import { counterForGameEnd, hiddenNumbers, playMode } from "../makeSudoku.js";
 import { Box } from "./singleBox.js";
-import { startSudoku, sudokuPage,closeSudoku, closeSudokuPage  } from "./constant.js";
-import { GameEnd, closeGameIf3Mistakes } from "./gameEnd.js";
+import { startSudoku, sudokuPage, closeSudokuPage, sudoku  } from "./constant.js";
+import { closeGameIf3Mistakes } from "./gameEnd.js";
 
 
 startSudoku.addEventListener("click", () =>
   sudokuPage.classList.remove("positionHidden"),
 );
-closeSudoku.addEventListener("click", ()=> {
-  GameEnd()
-   gameProcess = false
-});
+
 
 closeSudokuPage.addEventListener("click", () =>
   sudokuPage.classList.add("positionHidden")
 );
 
 export function renderSudoku(empties) {
+    sudoku.classList.remove("positionHidden")
+  
   const section = document.getElementById("sudoku");
-  const boxes = playMode(empties);
+  const boxes = new playMode(empties);
   for (let i = 0; i < 9; i++) {
     const square = createElement("div", { class: "square", id: "square" + i });
 

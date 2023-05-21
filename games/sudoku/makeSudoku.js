@@ -70,7 +70,7 @@ function shuffleArray(array) {
   
 }
 
-const board = sudokuBoard();
+const board =  sudokuBoard();
  export let hiddenNumbers =[[],[],[],[],[],[],[],[],[]]
  export let counterForGameEnd=0
 
